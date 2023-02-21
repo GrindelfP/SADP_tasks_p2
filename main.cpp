@@ -1,29 +1,25 @@
 //
-// SADP_tasks_part2_task1
+// SADP_tasks_part2_main
 //
 #include <iostream>
-#include "complexNumber.hpp"
+#include "task1/complexNumber.hpp"
 
 int main() {
-    ComplexNumber cn(4, 5);
-    std::cout << cn + cn << std::endl;
-    std::cout << cn - ComplexNumber(2, 1) << std::endl;
-    std::cout << cn * cn << std::endl;
-    std::cout << cn / ComplexNumber(2, 5) << std::endl;
-    std::cout << -cn << std::endl;
-    std::cout << (cn == ComplexNumber(5, 5)) << std::endl;
-    std::cout << cn.abs() << std::endl;
-    std::cout << cn.getReal() << std::endl;
-    std::cout << cn.getImaginary() << std::endl;
-    std::cout << cn.argument() << std::endl;
-    std::cout << cn.conjugate() << std::endl;
-    std::cout << ComplexNumber(0, 0).argument() << std::endl;
-    std::cout << ComplexNumber(1, 0).argument() << std::endl;
-    std::cout << ComplexNumber(-1, 1).argument() << std::endl;
-    std::cout << ComplexNumber(-1, 0).argument() << std::endl;
-    std::cout << ComplexNumber(-1, -1).argument() << std::endl;
-    std::cout << ComplexNumber(0, 1).argument() << std::endl;
-    std::cout << ComplexNumber(0, -1).argument() << std::endl;
+    ComplexNumber cn[4] {1, 2, ComplexNumber(2, 3)};
+
+    std::cout << '[';
+    for (ComplexNumber n : cn) {
+        std::cout << n << ", ";
+    }
+    std::cout << ']' << std::endl;
+
+    ComplexNumber *pComplexNumber = new ComplexNumber[3];
+    pComplexNumber[1].getReal();
+    delete[] pComplexNumber;
+
+    ComplexNumber cn3(2, 3);
+    ComplexNumber cn4(5, 8);
+    std::cout << cn3 * cn4 << std::endl;
 
     return 0;
 }
